@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Te Lo Regalo | Dale una segunda vida a lo que ya no usas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-principal: #059669;
+      --verde-hover: #047857;
+      --verde-suave: #ecfdf5;
+      --oscuro: #111827;
+      --texto-suave: #4b5563;
+      --fondo-gris: #f9fafb;
+      --blanco: #ffffff;
+      --borde: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+    body { background-color: var(--fondo-gris); color: var(--oscuro); line-height: 1.6; }
+
+    /* NAVEGACIÓN */
+    .navbar { background: var(--blanco); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 100; padding: 15px 20px; }
+    .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.2rem; font-weight: 900; color: var(--verde-principal); text-decoration: none; text-transform: uppercase; letter-spacing: -0.5px; }
+    .nav-btn { background: var(--verde-principal); color: var(--blanco); padding: 8px 16px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 0.85rem; }
+
+    /* HERO BANNER */
+    .hero { background: var(--blanco); padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--borde); }
+    .hero-container { max-width: 750px; margin: 0 auto; }
+    .hero tag { background: var(--verde-suave); color: var(--verde-principal); font-weight: 800; font-size: 0.75rem; padding: 6px 14px; border-radius: 50px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
+    .hero h1 { font-size: 2.3rem; font-weight: 900; color: var(--oscuro); margin-bottom: 15px; line-height: 1.2; }
+    .hero p { font-size: 1.05rem; color: var(--texto-suave); margin-bottom: 30px; }
+    .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--verde-principal); color: var(--blanco); padding: 14px 28px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
+    .btn-secondary { background: var(--blanco); color: var(--oscuro); border: 2px solid var(--borde); padding: 12px 26px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
+
+    /* CÓMO FUNCIONA */
+    .steps-section { padding: 50px 20px; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 35px; color: var(--oscuro); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .step-card { background: var(--blanco); padding: 25px; border-radius: 12px; border: 1px solid var(--borde); text-align: center; }
+    .step-num { width: 40px; height: 40px; background: var(--verde-suave); color: var(--verde-principal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; margin: 0 auto 15px; }
+
+    /* CATÁLOGO */
+    .catalog-section { padding: 50px 20px; background: var(--blanco); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+    .catalog-container { max-width: 1100px; margin: 0 auto; }
+    .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .item-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .item-img { width: 100%; height: 200px; object-fit: cover; }
+    .item-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .item-location { font-size: 0.75rem; font-weight: 800; color: var(--verde-principal); text-transform: uppercase; margin-bottom: 5px; }
+    .item-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .item-desc { font-size: 0.85rem; color: var(--texto-suave); margin-bottom: 20px; }
+    .btn-claim { margin-top: auto; background: var(--oscuro); color: var(--blanco); text-align: center; padding: 12px; border-radius: 6px; font-weight: 800; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; }
+
+    /* TRANSPORTE / FLETES */
+    .freight-box { background: var(--verde-suave); border: 2px dashed var(--verde-principal); border-radius: 12px; padding: 35px 20px; text-align: center; max-width: 800px; margin: 40px auto; }
+    .freight-box h3 { font-size: 1.4rem; font-weight: 900; color: var(--verde-principal); margin-bottom: 10px; }
+    .freight-box p { font-size: 0.95rem; color: var(--texto-suave); max-width: 600px; margin: 0 auto 20px; }
+
+    /* FORMULARIO */
+    .form-section { padding: 60px 20px; max-width: 650px; margin: 0 auto; }
+    .form-card { background: var(--blanco); border: 1px solid var(--borde); padding: 35px; border-radius: 12px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--borde); border-radius: 6px; font-size: 0.9rem; }
+    .btn-submit { width: 100%; background: var(--verde-principal); color: var(--blanco); border: none; padding: 16px; border-radius: 8px; font-weight: 900; text-transform: uppercase; font-size: 0.95rem; cursor: pointer; }
+
+    footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--texto-suave); border-top: 1px solid var(--borde); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Te Lo Regalo</a>
+      <a href="#publicar" class="nav-btn">+ Publicar Objetos</a>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="tag">Economía Circular en Santiago</div>
+      <h1>Dale una segunda vida a lo que ya no usas</h1>
+      <p>Conectamos a personas que quieren regalar muebles, electrodomésticos y objetos con quienes realmente los necesitan.</p>
+      <div class="hero-buttons">
+        <a href="#publicar" class="btn-primary">Quiero Regalar Algo</a>
+        <a href="#catalogo" class="btn-secondary">Ver Disponibles</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="steps-section">
+    <h2 class="section-title">¿Cómo funciona?</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 8px;">Publica gratis</h3>
+        <p style="font-size: 0.85rem; color: var(--texto-suave);">Sube una foto y descripción del objeto que ya no utilizas.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 8px;">Encuentra el interesado</h3>
+        <p style="font-size: 0.85rem; color: var(--texto-suave);">Alguien solicita tu objeto para darle un nuevo uso en su hogar.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 8px;">Coordinamos el Retiro</h3>
+        <p style="font-size: 0.85rem; color: var(--texto-suave);">Retiro directo o te ayudamos a coordinar un flete accesible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE EJEMPLO -->
+  <section class="catalog-section" id="catalogo">
+    <div class="catalog-container">
+      <h2 class="section-title">Objetos Disponibles Hoy</h2>
+      
+      <div class="items-grid">
+        
+        <!-- OBJETO 1 -->
+        <div class="item-card">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Sillón 2 Cuerpos" class="item-img">
+          <div class="item-content">
+            <span class="item-location">Providencia</span>
+            <h3 class="item-title">Sillón 2 Cuerpos Tela Gris</h3>
+            <p class="item-desc">En buen estado general, perfecto para departamento o sala de estar. Se regala por remodelación.</p>
+            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20el%20Sillón%202%20Cuerpos%20publicado%20en%20Providencia." target="_blank" class="btn-claim">Lo Quiero →</a>
+          </div>
+        </div>
+
+        <!-- OBJETO 2 -->
+        <div class="item-card">
+          <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80" alt="Mesa de Centro" class="item-img">
+          <div class="item-content">
+            <span class="item-location">Ñuñoa</span>
+            <h3 class="item-title">Mesa de Centro de Madera</h3>
+            <p class="item-desc">Madera firme, tiene pequeños detalles estéticos en la cubierta. Retiro urgente esta semana.</p>
+            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20la%20Mesa%20de%20Centro%20publicada%20en%20Ñuñoa." target="_blank" class="btn-claim">Lo Quiero →</a>
+          </div>
+        </div>
+
+        <!-- OBJETO 3 -->
+        <div class="item-card">
+          <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80" alt="Lámpara de Pie" class="item-img">
+          <div class="item-content">
+            <span class="item-location">Las Condes</span>
+            <h3 class="item-title">Lámpara de Pie Vintage</h3>
+            <p class="item-desc">Funcionando al 100%. Incluye ampolleta luz cálida.</p>
+            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20la%20Lámpara%20de%20Pie%20publicada%20en%20Las%20Condes." target="_blank" class="btn-claim">Lo Quiero →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GANCHO DE FLETE -->
+      <div class="freight-box">
+        <h3>🚚 ¿No tienes cómo trasladarlo?</h3>
+        <p>No te preocupes por el tamaño. Si encuentras algo que te gusta, te ayudamos a coordinar un flete o transporte de confianza a tarifa preferencial.</p>
+        <a href="https://wa.me/56932701196?text=Hola,%20quisiera%20cotizar%20un%20flete%20para%20un%20objeto." target="_blank" style="color: var(--verde-principal); font-weight: 800; text-decoration: none; font-size: 0.9rem;">Cotizar Flete por WhatsApp →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE PUBLICACIÓN -->
+  <section class="form-section" id="publicar">
+    <h2 class="section-title">Publica algo para regalar</h2>
+    
+    <div class="form-card">
+      <form id="regaloForm" onsubmit="enviarWhatsApp(event)">
+        
+        <div class="form-group">
+          <label for="nombre">Tu Nombre</label>
+          <input type="text" id="nombre" placeholder="Ej: María José" required>
+        </div>
+
+        <div class="form-group">
+          <label for="comuna">Comuna de Retiro</label>
+          <input type="text" id="comuna" placeholder="Ej: Providencia, Santiago Centro" required>
+        </div>
+
+        <div class="form-group">
+          <label for="objeto">¿Qué quieres regalar?</label>
+          <input type="text" id="objeto" placeholder="Ej: Velador de madera, Comedor 4 sillas" required>
+        </div>
+
+        <div class="form-group">
+          <label for="detalle">Detalles o Estado del objeto</label>
+          <textarea id="detalle" rows="3" placeholder="Indica si tiene detalles estéticos o plazo máximo para retirar..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Publicar Objeto Vía WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Te Lo Regalo — Proyecto de Economía Circular y Reutilización.</p>
+  </footer>
+
+  <script>
+    function enviarWhatsApp(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const comuna = document.getElementById('comuna').value;
+      const objeto = document.getElementById('objeto').value;
+      const detalle = document.getElementById('detalle').value;
+
+      const mensaje = `Hola! Quiero publicar un objeto en Te Lo Regalo:%0A%0A` +
+                      `*Nombre:* ${nombre}%0A` +
+                      `*Comuna:* ${comuna}%0A` +
+                      `*Objeto:* ${objeto}%0A` +
+                      `*Detalles:* ${detalle}`;
+
+      // Redirige directamente al WhatsApp corporativo para coordinar la foto y publicación
+      window.open(`https://wa.me/56932701196?text=${mensaje}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
