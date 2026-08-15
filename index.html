@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Te Lo Regalo | Reutiliza y comparte</title>
+  <title>Te Lo Regalo | comunidad · reciclaje · karma</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* PALETA DE COLORES */
-      --naranja: #f97316;
-      --naranja-hover: #ea580c;
-      --azul-principal: #1e3a8a;
+      /* PALETA DE COLORES OFICIAL TE LO REGALO */
+      --azul-te: #0262B4;
+      --verde-lo: #59B023;
+      --naranja-regalo: #F36C21;
+      --naranja-hover: #d9560d;
+      --verde-suave: #ebf7e5;
       --azul-oscuro: #0f172a;
-      --verde-claro: #dcfce7;
-      --verde-texto: #15803d;
       --fondo-gris: #f8fafc;
       --blanco: #ffffff;
       --borde: #e2e8f0;
@@ -26,38 +26,40 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
     body { background-color: var(--fondo-gris); color: var(--azul-oscuro); line-height: 1.6; }
 
-    /* BARRA DE NAVEGACIÓN */
-    .navbar { background: var(--blanco); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 100; padding: 15px 20px; }
+    /* BARRA DE NAVEGACIÓN CON LOGO */
+    .navbar { background: var(--blanco); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 100; padding: 10px 20px; }
     .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.3rem; font-weight: 900; color: var(--azul-principal); text-decoration: none; text-transform: uppercase; letter-spacing: -0.5px; }
-    .logo span { color: var(--naranja); }
-    .nav-btn { background: var(--naranja); color: var(--blanco); padding: 10px 20px; border-radius: 50px; font-weight: 800; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; transition: background 0.2s; }
+    
+    .brand-logo { display: flex; align-items: center; text-decoration: none; }
+    .logo-img { height: 52px; width: auto; object-fit: contain; }
+
+    .nav-btn { background: var(--naranja-regalo); color: var(--blanco); padding: 10px 20px; border-radius: 50px; font-weight: 800; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; transition: background 0.2s; }
     .nav-btn:hover { background: var(--naranja-hover); }
 
-    /* HERO BANNER CON IMAGEN DE FONDO */
+    /* HERO BANNER */
     .hero { 
       position: relative;
       background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                   url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      padding: 100px 20px; 
+      padding: 90px 20px; 
       text-align: center; 
       color: var(--blanco);
     }
     .hero-container { max-width: 800px; margin: 0 auto; }
-    .hero .tag { background: var(--verde-claro); color: var(--verde-texto); font-weight: 800; font-size: 0.8rem; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
-    .hero h1 { font-size: 2.6rem; font-weight: 900; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-    .hero p { font-size: 1.15rem; color: #e2e8f0; margin-bottom: 35px; font-weight: 400; }
+    .hero .tag { background: var(--verde-suave); color: var(--verde-lo); font-weight: 800; font-size: 0.8rem; padding: 6px 16px; border-radius: 50px; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
+    .hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.15rem; color: #e2e8f0; margin-bottom: 30px; font-weight: 500; }
     .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--naranja); color: var(--blanco); padding: 15px 30px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-primary { background: var(--naranja-regalo); color: var(--blanco); padding: 15px 30px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; transition: background 0.2s; }
     .btn-primary:hover { background: var(--naranja-hover); }
     .btn-secondary { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(5px); color: var(--blanco); border: 2px solid var(--blanco); padding: 13px 28px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
 
     /* CÓMO FUNCIONA */
     .steps-section { padding: 70px 20px; max-width: 1100px; margin: 0 auto; }
-    .section-title { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 40px; color: var(--azul-principal); }
+    .section-title { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 40px; color: var(--azul-te); }
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-    .step-card { background: var(--verde-claro); padding: 30px 25px; border-radius: 12px; border: 1px solid #bbf7d0; text-align: center; }
-    .step-num { width: 45px; height: 45px; background: var(--azul-principal); color: var(--blanco); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; margin: 0 auto 15px; font-size: 1.1rem; }
+    .step-card { background: var(--verde-suave); padding: 30px 25px; border-radius: 12px; border: 1px solid #cce8bd; text-align: center; }
+    .step-num { width: 45px; height: 45px; background: var(--azul-te); color: var(--blanco); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; margin: 0 auto 15px; font-size: 1.1rem; }
 
     /* CATÁLOGO DE OBJETOS */
     .catalog-section { padding: 70px 20px; background: var(--blanco); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
@@ -66,24 +68,24 @@
     .item-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .item-img { width: 100%; height: 210px; object-fit: cover; }
     .item-content { padding: 22px; flex-grow: 1; display: flex; flex-direction: column; }
-    .item-location { font-size: 0.75rem; font-weight: 800; color: var(--verde-texto); background: var(--verde-claro); padding: 3px 10px; border-radius: 4px; text-transform: uppercase; margin-bottom: 10px; width: fit-content; }
-    .item-title { font-size: 1.15rem; font-weight: 800; color: var(--azul-principal); margin-bottom: 8px; }
+    .item-location { font-size: 0.75rem; font-weight: 800; color: var(--verde-lo); background: var(--verde-suave); padding: 4px 10px; border-radius: 4px; text-transform: uppercase; margin-bottom: 10px; width: fit-content; }
+    .item-title { font-size: 1.15rem; font-weight: 800; color: var(--azul-te); margin-bottom: 8px; }
     .item-desc { font-size: 0.88rem; color: #475569; margin-bottom: 20px; }
-    .btn-claim { margin-top: auto; background: var(--azul-principal); color: var(--blanco); text-align: center; padding: 12px; border-radius: 6px; font-weight: 800; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; transition: background 0.2s; }
-    .btn-claim:hover { background: var(--azul-oscuro); }
+    .btn-claim { margin-top: auto; background: var(--azul-te); color: var(--blanco); text-align: center; padding: 12px; border-radius: 6px; font-weight: 800; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; transition: background 0.2s; }
+    .btn-claim:hover { background: #014682; }
 
     /* FLETES Y TRANSPORTE */
-    .freight-box { background: var(--verde-claro); border: 2px dashed var(--verde-texto); border-radius: 12px; padding: 40px 25px; text-align: center; max-width: 800px; margin: 50px auto 10px; }
-    .freight-box h3 { font-size: 1.5rem; font-weight: 900; color: var(--azul-principal); margin-bottom: 10px; }
+    .freight-box { background: var(--verde-suave); border: 2px dashed var(--verde-lo); border-radius: 12px; padding: 40px 25px; text-align: center; max-width: 800px; margin: 50px auto 10px; }
+    .freight-box h3 { font-size: 1.5rem; font-weight: 900; color: var(--azul-te); margin-bottom: 10px; }
     .freight-box p { font-size: 0.95rem; color: #334155; max-width: 600px; margin: 0 auto 20px; }
 
     /* FORMULARIO */
     .form-section { padding: 70px 20px; max-width: 650px; margin: 0 auto; }
     .form-card { background: var(--blanco); border: 1px solid var(--borde); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
     .form-group { margin-bottom: 22px; }
-    .form-group label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; color: var(--azul-principal); }
+    .form-group label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; color: var(--azul-te); }
     .form-group input, .form-group textarea { width: 100%; padding: 13px; border: 1px solid var(--borde); border-radius: 6px; font-size: 0.9rem; }
-    .btn-submit { width: 100%; background: var(--naranja); color: var(--blanco); border: none; padding: 16px; border-radius: 8px; font-weight: 900; text-transform: uppercase; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; }
+    .btn-submit { width: 100%; background: var(--naranja-regalo); color: var(--blanco); border: none; padding: 16px; border-radius: 8px; font-weight: 900; text-transform: uppercase; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; }
     .btn-submit:hover { background: var(--naranja-hover); }
 
     footer { text-align: center; padding: 30px; font-size: 0.85rem; color: #64748b; border-top: 1px solid var(--borde); background: var(--blanco); }
@@ -94,12 +96,14 @@
   <!-- BARRA DE NAVEGACIÓN -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">Te Lo <span>Regalo</span></a>
+      <a href="#" class="brand-logo">
+        <img src="logo.jpg" alt="Te Lo Regalo - comunidad | reciclaje | karma" class="logo-img">
+      </a>
       <a href="#publicar" class="nav-btn">+ Publicar Objeto</a>
     </div>
   </nav>
 
-  <!-- HERO BANNER CON IMAGEN DE FONDO -->
+  <!-- HERO BANNER -->
   <header class="hero">
     <div class="hero-container">
       <div class="tag">Economía Circular</div>
@@ -118,18 +122,18 @@
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">1</div>
-        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-principal);">Publica Gratis</h3>
-        <p style="font-size: 0.88rem; color: #334155;">Sube una foto y descripción corta del objeto que ya no utilizas.</p>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-te);">Publica Gratis</h3>
+        <p style="font-size: 0.88rem; color: #334155;">Sube los datos y foto del objeto que ya no utilizas.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-principal);">Encuentra Solicitante</h3>
-        <p style="font-size: 0.88rem; color: #334155;">Un vecino interesado se contacta para coordinar la entrega.</p>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-te);">Encuentra Solicitante</h3>
+        <p style="font-size: 0.88rem; color: #334155;">Un vecino interesado se contacta para coordinar el retiro.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-principal);">Coordinamos Retiro</h3>
-        <p style="font-size: 0.88rem; color: #334155;">Retiro directo o ayuda con un servicio de flete económico.</p>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--azul-te);">Coordinamos Retiro</h3>
+        <p style="font-size: 0.88rem; color: #334155;">Retiro directo entre usuarios o apoyo con flete de bajo costo.</p>
       </div>
     </div>
   </section>
@@ -148,7 +152,7 @@
             <span class="item-location">Providencia</span>
             <h3 class="item-title">Sillón 2 Cuerpos Gris</h3>
             <p class="item-desc">En buen estado general, ideal para living o departamento. Se regala por renovación.</p>
-            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20el%20Sillón%202%20Cuerpos%20publicado%20en%20Providencia." target="_blank" class="btn-claim">Lo Quiero →</a>
+            <a href="https://wa.me/56982888805?text=Hola,%20me%20interesa%20el%20Sill%C3%B3n%202%20Cuerpos%20publicado%20en%20Providencia." target="_blank" class="btn-claim">Lo Quiero →</a>
           </div>
         </div>
 
@@ -159,7 +163,7 @@
             <span class="item-location">Ñuñoa</span>
             <h3 class="item-title">Mesa de Centro Madera</h3>
             <p class="item-desc">Estructura firme de madera. Pequeños detalles de uso en la cubierta.</p>
-            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20la%20Mesa%20de%20Centro%20publicada%20en%20Ñuñoa." target="_blank" class="btn-claim">Lo Quiero →</a>
+            <a href="https://wa.me/56982888805?text=Hola,%20me%20interesa%20la%20Mesa%20de%20Centro%20publicada%20en%20%C3%91u%C3%B1oa." target="_blank" class="btn-claim">Lo Quiero →</a>
           </div>
         </div>
 
@@ -170,7 +174,7 @@
             <span class="item-location">Las Condes</span>
             <h3 class="item-title">Lámpara de Pie Vintage</h3>
             <p class="item-desc">Funcionando perfectamente. Se entrega con ampolleta luz cálida incluida.</p>
-            <a href="https://wa.me/56932701196?text=Hola,%20me%20interesa%20la%20Lámpara%20de%20Pie%20publicada%20en%20Las%20Condes." target="_blank" class="btn-claim">Lo Quiero →</a>
+            <a href="https://wa.me/56982888805?text=Hola,%20me%20interesa%20la%20L%C3%A1mpara%20de%20Pie%20publicada%20en%20Las%20Condes." target="_blank" class="btn-claim">Lo Quiero →</a>
           </div>
         </div>
 
@@ -180,7 +184,7 @@
       <div class="freight-box">
         <h3>🚚 ¿Necesitas ayuda con el traslado?</h3>
         <p>Si no tienes un vehículo adecuado para el retiro, te ayudamos a coordinar un flete o transporte de confianza a un costo accesible.</p>
-        <a href="https://wa.me/56932701196?text=Hola,%20quisiera%20cotizar%20un%20flete%20para%20un%20objeto." target="_blank" style="color: var(--verde-texto); font-weight: 800; text-decoration: none; font-size: 0.9rem;">Cotizar Flete Vía WhatsApp →</a>
+        <a href="https://wa.me/56982888805?text=Hola,%20quisiera%20cotizar%20un%20flete%20para%20un%20objeto." target="_blank" style="color: var(--verde-lo); font-weight: 800; text-decoration: none; font-size: 0.9rem;">Cotizar Flete Vía WhatsApp →</a>
       </div>
 
     </div>
@@ -214,9 +218,9 @@
         </div>
 
         <!-- AVISO DE FOTO (UX) -->
-        <div class="form-group" style="background: var(--verde-claro); padding: 15px; border-radius: 8px; border: 2px dashed var(--verde-texto); margin-bottom: 25px; text-align: center;">
-          <label style="color: var(--verde-texto); margin-bottom: 5px; font-size: 1rem;">📸 Foto del Objeto</label>
-          <p style="font-size: 0.85rem; color: #15803d; margin-bottom: 0;">Para que tu anuncio se vea perfecto, <strong>te pediremos adjuntar la foto directamente en el chat de WhatsApp</strong> en el siguiente paso.</p>
+        <div class="form-group" style="background: var(--verde-suave); padding: 15px; border-radius: 8px; border: 2px dashed var(--verde-lo); margin-bottom: 25px; text-align: center;">
+          <label style="color: var(--verde-lo); margin-bottom: 5px; font-size: 1rem;">📸 Foto del Objeto</label>
+          <p style="font-size: 0.85rem; color: #2e6b0a; margin-bottom: 0;">Para que tu anuncio se vea perfecto, <strong>te pediremos adjuntar la foto directamente en el chat de WhatsApp</strong> en el siguiente paso.</p>
         </div>
 
         <button type="submit" class="btn-submit">Ir a WhatsApp a Enviar Datos y Foto</button>
@@ -225,7 +229,7 @@
   </section>
 
   <footer>
-    <p>© 2026 Te Lo Regalo — Red de Economía Circular y Reutilización.</p>
+    <p>© 2026 Te Lo Regalo — comunidad | reciclaje | karma.</p>
   </footer>
 
   <script>
@@ -243,7 +247,7 @@
                       `*Detalles:* ${detalle}%0A%0A` +
                       `👉 *Aquí abajo te adjunto la foto del objeto:*`;
 
-      window.open(`https://wa.me/56932701196?text=${mensaje}`, '_blank');
+      window.open(`https://wa.me/56982888805?text=${mensaje}`, '_blank');
     }
   </script>
 
